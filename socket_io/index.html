@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Basic Web Page</title>
+    </head>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+                var socket =  io.connect('http://localhost:8080');
+                socket.on('messages', function(data){
+                    alert(data.hello);
+                });
+                $('#chat_form').submit(function(e){
+                    var message = $('#chat_input').val();
+                    // emit the message event on the server
+                    socket.emit('messages', message);
+                });
+        </script>
+
+
+
+    <body>
+            <body class="container">
+                    <div style="text-align:center;"><h1>Hello from Chattr</h1>
+                      <input type="text" class="form-control" id="chat_input" placeholder="Connecting...">
+                      <br><br>
+                      <textarea rows="4" cols="50" id = "chat_form"></textarea>
+                    </div>
+                </div>
+
+
+
+
+    </body>
+</html>
