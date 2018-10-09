@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Whassup Dog!</title>
+
+</head>
+<body>
+
+  <form method="post" action="/cgi-bin/formhandler.cgi">
+    <fieldset>
+      <legend>Subscribe to our mailing list</legend>
+        <p>
+          <label for="email">Your E-mail adress</label>
+          <input type="text" name="email" id="email" />
+        </p>
+    <fieldset>
+      <legend>Select your preferred format</legend>
+        <ul>
+          <li>
+            <label for="text">
+              <input type="radio" name = "pref" value="html" id="html" /> HTML
+            </label>
+          </li>
+        </ul>
+    </fieldset>
+    <p><input type="submit" id="subscribe" value="Subscribe" /></p>
+  </fieldset>
+</form>
+
+</body>
+
+</html>
