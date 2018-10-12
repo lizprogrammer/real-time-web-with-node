@@ -6,27 +6,30 @@
 </head>
 <body>
 
-  <form method="post" action="/cgi-bin/formhandler.cgi">
-    <fieldset>
-      <legend>Subscribe to our mailing list</legend>
-        <p>
-          <label for="email">Your E-mail adress</label>
+	<div>
+	<fieldset>
+      	<legend>Messages</legend>
+    		<fieldset>
+      			<legend>Chat it up!</legend>
+				<textarea name = "messages" rows = 30 cols = 200>
+				</textarea>		
+    	</fieldset>
+	 <p>
+          <label for="email">Chat here: </label>
           <input type="text" name="email" id="email" />
         </p>
-    <fieldset>
-      <legend>Select your preferred format</legend>
-        <ul>
-          <li>
-            <label for="text">
-              <input type="radio" name = "pref" value="html" id="html" /> HTML
-            </label>
-          </li>
-        </ul>
-    </fieldset>
-    <p><input type="submit" id="subscribe" value="Subscribe" /></p>
-  </fieldset>
-</form>
 
+    	<p><input type="submit" id="subscribe" value="submit" /></p>
+  </fieldset>
+</div>
+
+<script src = "/socket.io/socket.io.js"></script>
+<script>
+	var socket = io.connect('http://localhost:8080');
+	socket.on('messages', function(data){
+		alert(data.hello);
+	});
+</script>
 </body>
 
 </html>
